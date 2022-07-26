@@ -1,0 +1,72 @@
+
+
+
+
+
+
+
+
+
+from tkinter import *
+
+hp=Tk()
+hp.title("SALT WEIGHT CALCULATOR")
+hp.geometry('600x450')
+
+
+def delete():
+    resentry.delete(0,END)
+    p = Label(text="                                                         ", font="arial 24").place(x=110, y=290)
+
+
+
+
+def cal():
+    a = float(resentry.get())
+    if a==0 and a<=10:
+        j = Label(text="✅It is a saturated salt solution ", font="arial 24 bold").place(x=110, y=290)
+    else:
+        if a >= 650 and a <= 999:
+          j = Label(text="✅Water has 5g of salt", font="arial 24").place(x=140, y=290)
+        elif a >= 500 and a <=649:
+          j = Label(text="✅Water has 10g of salt", font="arial 24").place(x=140, y=290)
+        elif a >= 350 and a <= 499:
+          j = Label(text="✅Water has 15g of salt", font="arial 24").place(x=140, y=290)
+        elif a >= 300 and a <= 349:
+          j = Label(text="✅Water has 20g of salt", font="arial 24").place(x=140, y=290)
+        elif a >= 210 and a <= 299:
+          j = Label(text="✅Water has 25g of salt", font="arial 24").place(x=140, y=290)
+        elif a >= 100 and a <= 210:
+          j = Label(text="✅Water has 30g of salt", font="arial 24").place(x=140, y=290)
+        elif a >= 1 and a <= 99:
+          j = Label(text="It is a saturated salt solution 💯", font="arial 24").place(x=110, y=290)
+        else:
+          j = Label(text="               Out of range⚠️                            ", font="arial 24 bold").place(x=40, y=290)
+
+rlt= Label(hp, text="Result ↡", font="arial 30 bold")
+name = Label(hp, text="🧭Salt calculator🧭", font="arial 40 bold")
+res = Label(hp, text="Enter the resistance value", font="arial 27")
+n1 = Label(hp, text="© Team goatzZ ", font="arial 13")
+rlt.place(x=70,y=220)
+res.place(x=90,y=110)
+name.place(x=58,y=15)
+n1.place(x=440,y=420)
+
+
+
+resvalue=StringVar()
+
+resentry =Entry(hp, textvariable=resvalue, font="arial 20", width=8)
+resentry.place(x=240,y=180)
+
+
+Button(text="Calculate", font="arial 20",command=cal).place(x=50, y=360)
+Button(hp, text="Clear all", command=delete, font="arial 20", width=8).place(x=229, y=360)
+#Button(hp, text="Exit", command=lambda:exit(), font="arial 20",width=8).place(x=410, y=360)
+exit_button = Button(hp, text="Exit", font="arial 20" ,width=8   ,command=hp.destroy)
+exit_button.place(x=410, y=360)
+
+
+
+
+hp.mainloop()
